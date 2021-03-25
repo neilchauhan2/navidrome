@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     marginTop: '1em',
     float: 'left',
+    wordBreak: 'break-all',
   },
   pointerCursor: {
     cursor: 'pointer',
