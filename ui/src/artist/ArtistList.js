@@ -17,7 +17,6 @@ import {
   QuickFilter,
   SimpleList,
   useGetHandleArtistClick,
-  RatingField,
 } from '../common'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -57,14 +56,7 @@ const ArtistListView = ({ hasShow, hasEdit, hasList, width, ...rest }) => {
   const isXsmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   return isXsmall ? (
     <SimpleList
-      primaryText={(r) => (
-        <>
-          {r.name}
-          <div>
-            <RatingField record={r} resource={'artist'} />
-          </div>
-        </>
-      )}
+      primaryText={(r) => r.name}
       linkType={(id) => {
         history.push(handleArtistLink(id))
       }}
@@ -77,7 +69,6 @@ const ArtistListView = ({ hasShow, hasEdit, hasList, width, ...rest }) => {
       <NumberField source="albumCount" sortByOrder={'DESC'} />
       <NumberField source="songCount" sortByOrder={'DESC'} />
       <NumberField source="playCount" sortByOrder={'DESC'} />
-      <RatingField source="rating" />
       <ArtistContextMenu
         source={'starred'}
         sortBy={'starred ASC, starredAt ASC'}
