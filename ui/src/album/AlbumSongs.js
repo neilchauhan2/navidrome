@@ -19,6 +19,7 @@ import {
   SongDatagrid,
   SongDetails,
   SongTitleField,
+  RatingField,
 } from '../common'
 import { AddToPlaylistDialog } from '../dialogs'
 import config from '../config'
@@ -62,10 +63,16 @@ const useStyles = makeStyles(
         '& $contextMenu': {
           visibility: 'visible',
         },
+        '& $ratingField': {
+          visibility: 'visible',
+        },
       },
     },
     contextMenu: {
       visibility: (props) => (props.isDesktop ? 'hidden' : 'visible'),
+    },
+    ratingField: {
+      visibility: 'hidden',
     },
   }),
   { name: 'RaList' }
@@ -119,6 +126,13 @@ const AlbumSongs = (props) => {
             />
             {isDesktop && <TextField source="artist" sortable={false} />}
             <DurationField source="duration" sortable={false} />
+            {isDesktop && (
+              <RatingField
+                source="rating"
+                resource={'song'}
+                className={classes.ratingField}
+              />
+            )}
             <SongContextMenu
               source={'starred'}
               sortable={false}
