@@ -14,6 +14,7 @@ const defaultConfig = {
   devActivityPanel: true,
   devFastAccessCoverArt: false,
   enableFavourites: true,
+  enableStarRating: true,
 }
 
 let config

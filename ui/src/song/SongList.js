@@ -119,11 +119,13 @@ const SongList = (props) => {
               />
             )}
             <DurationField source="duration" />
-            <RatingField
-              source="rating"
-              resource={'song'}
-              className={classes.ratingField}
-            />
+            {config.enableStarRating && (
+              <RatingField
+                source="rating"
+                resource={'song'}
+                className={classes.ratingField}
+              />
+            )}
             <SongContextMenu
               source={'starred'}
               sortBy={'starred ASC, starredAt ASC'}
